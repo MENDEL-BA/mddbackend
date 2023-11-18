@@ -1,0 +1,43 @@
+.container {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 87px 0 231px 0;
+  }
+  .container-buttons button {
+    min-width: 250px;
+  }
+  .container-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    margin-bottom: 175px;
+  }
+  
+  .container img {
+    margin-bottom: 44px;
+  }
+  
+  @media only screen and (max-width: 580px) {
+    .container {
+      padding-top: 58px;
+      margin: 0;
+    }
+  
+    .container img {
+      margin-bottom: 54px;
+      width: 225px;
+    }
+    .container-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 0;
+    }
+  }
+  
