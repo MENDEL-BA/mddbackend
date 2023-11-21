@@ -3,14 +3,16 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './shared-module/landing/landing.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './components/guards/auth.guard';
 
-// consider a guard combined with canLoad / canActivate route option
-// to manage unauthenticated user to access private routes
 const routes: Routes = [
   { path: '', component: LandingComponent },
+  {
+    path: 'posts',
+    canActivate: [AuthGuard],
+  },
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  //{path: '404', component: NotFoundComponent},
   {path: '**', redirectTo: '404'}
 ];
 

@@ -1,1 +1,17 @@
-<router-outlet></router-outlet>
+<div
+  [style]="
+    headerIsshown()
+      ? {
+          minHeight: 'calc(100vh - 2px)'
+        }
+      : isDesktop
+      ? { minHeight: 'calc(100vh - 89px)' }
+      : { minHeight: 'calc(100vh - 2px)' }
+  "
+  class="container"
+>
+  <app-header *ngIf="headerIsshown()"></app-header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
