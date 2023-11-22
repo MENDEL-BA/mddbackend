@@ -1,0 +1,31 @@
+<section>
+  <ng-container *ngIf="posts as post; else loading">
+    <div class="container">
+      <button class="button-create" mat-raised-button color="primary" (click)="newPost()">
+        Créer un article
+      </button>
+      <span class="spacer"></span>
+      <button
+        *ngIf="post.length"
+        class="button-order"
+        [attr.aria-label]="'Order by '+sortDirection+' date'"
+        (click)="orderByDAte()">
+        Trier par
+        <img
+          src="/assets/arrow-small-down.png"
+          alt="Order by date"
+          [style]="
+            sortDirection == 'descending' ? {} : { transform: 'rotate(180deg)' }" height="32" width="32"/>
+      </button>
+    </div>
+    <div class="list-article" *ngIf="post.length">
+      <app-post-card *ngFor="let post of post" [post]="post"></app-post-card>
+    </div>
+    <div class="list-article" *ngIf="!post.length">
+      <p>No post available</p>
+    </div>
+  </ng-container>
+  <ng-template #loading>
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </ng-template>
+</section>

@@ -1,6 +1,7 @@
 package com.openclassrooms.mddapi.controllers;
 
 
+import com.openclassrooms.mddapi.dtos.SubjectDto;
 import com.openclassrooms.mddapi.models.Subject;
 import com.openclassrooms.mddapi.services.SubjectService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -41,8 +42,8 @@ public class SubjectController {
     public ResponseEntity<?> findAll() {
         List<Subject> subjects = this.service.getAll();
         if (!subjects.isEmpty()) {
-            return ResponseEntity.ok().body(this.mapper.map(subjects, Subject.class));
+            return ResponseEntity.ok().body(this.mapper.map(subjects, SubjectDto.class));
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
     }
 }

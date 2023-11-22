@@ -52,7 +52,7 @@ public class UserController {
         try {
             User user = this.service.getById(Long.valueOf(id));
             if (user == null) {
-                return ResponseEntity.notFound().build();
+                return ResponseEntity.noContent().build();
             }
             return ResponseEntity.ok().body(this.mapper.map(user, User.class));
         } catch (NumberFormatException e) {
@@ -75,7 +75,7 @@ public class UserController {
             User user = this.service.getById(Long.valueOf(id));
 
             if (user == null) {
-                return ResponseEntity.notFound().build();
+                return ResponseEntity.noContent().build();
             }
 
             UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

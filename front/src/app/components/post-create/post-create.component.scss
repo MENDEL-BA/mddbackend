@@ -1,0 +1,72 @@
+.ass-button-image {
+  position: absolute;
+  max-height: 23px;
+  margin-top: 5px;
+  margin-left: 22px;
+  background: none;
+  border: none;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 29px;
+  text-align: center;
+  height: 41px;
+  margin: 26px 0 31px 0;
+}
+
+.create-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 30rem;
+}
+
+.create-form mat-form-field {
+  width: 30rem;
+  font-size: 20px;
+}
+
+.create-form,
+::ng-deep,
+.mat-form-field-appearance-outline,
+.mat-form-field-infix {
+  padding: 0.05rem 0 0.55rem 0;
+}
+
+.create-form ::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0.5rem;
+}
+
+.button-sub {
+  margin: 30px 0 31px 0;
+  height: 40px;
+  width: 139px;
+}
+
+.create-form textarea {
+  height: 186px;
+}
+
+@media only screen and (max-width: 599.98px) {
+  .ass-button-image {
+    top: 91px;
+    margin-left: 14px;
+  }
+  .title {
+    margin: 84px 0 10px 0;
+  }
+  .create-form {
+    width: 15.625rem;
+    padding-top: 0;
+    margin: 0 auto;
+  }
+  .create-form mat-form-field {
+    width: 15.625rem;
+  }
+  .button-sub {
+    margin: 25px 0 23px 0;
+  }
+}

@@ -1,0 +1,44 @@
+<section class="container">
+  <button
+    class="ass-button-image"
+    aria-label="Return to previous page"
+    (click)="return()">
+    <img src="/assets/arrow_left.png" alt="Return"/>
+  </button>
+  <h1 class="title">Créer un nouvel article</h1>
+  <form class="create-form" [formGroup]="form" (ngSubmit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-select formControlName="subjectId">
+        <mat-option [value]="0" disabled>Sélectionnez un thème</mat-option>
+        <mat-option
+          *ngFor="let subject of subjects"
+          [value]="subject.id">
+          {{ subject.title }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        formControlName="title"
+        placeholder="Titre de l'article"
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <textarea
+        matInput
+        formControlName="description"
+        placeholder="Description de l'article"
+      ></textarea>
+    </mat-form-field>
+    <button
+      class="button-sub"
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Créer
+    </button>
+    <p *ngIf="onError" class="error">An error occurred</p>
+  </form>
+</section>

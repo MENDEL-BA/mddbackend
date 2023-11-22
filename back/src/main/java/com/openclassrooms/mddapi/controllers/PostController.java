@@ -23,6 +23,7 @@ import java.util.List;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping("/api/posts")
+@Log4j2
 @Tag(name = "Post", description = "Post API.")
 public class PostController {
     private final PostService service;
@@ -44,9 +45,9 @@ public class PostController {
     public ResponseEntity<?> findAllPostsByUser() {
         List<Post> posts = this.service.getAllPostByUserSubscription();
         if (!posts.isEmpty()) {
-            return ResponseEntity.ok().body(this.mapper.map(posts, Post.class));
+            return ResponseEntity.ok().body(this.mapper.map(posts, PostDto.class));
         }
-        return ResponseEntity.notFound().build();
+        return ResponseEntity.noContent().build();
 
     }
 
