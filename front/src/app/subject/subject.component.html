@@ -1,0 +1,20 @@
+<section>
+    <ng-container *ngIf="subjects; else loading">
+      <div class="list-subject" *ngIf="subjects.length">
+        <div *ngFor="let subject of subjects">
+          <subject-card-list
+            (subscribe)="subscription(subject)"
+            [subject]="subject"
+            [isDesktop]="isDesktop"
+          >
+          </subject-card-list>
+        </div>
+      </div>
+      <div class="list-subject" *ngIf="!subjects.length">
+        <p>Vous ne suivez aucun sujet</p>
+      </div>
+    </ng-container>
+    <ng-template #loading>
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </ng-template>
+  </section>

@@ -1,0 +1,31 @@
+<section>
+  <ng-container *ngIf="posts as post; else noPost">
+    <div class="container">
+      <button class="button-create" mat-raised-button color="primary" (click)="newArticle()">
+        Créer un article
+      </button>
+      <span class="spacer"></span>
+      <button
+        *ngIf="post.length"
+        class="button-order"
+        [attr.aria-label]="'Order by '+sortDirection+' date'"
+        (click)="orderByDate()">
+        Trier par Date
+        <img
+          src="/assets/arrow-small-down.png"
+          alt="Order by date"
+          [style]="
+            sortDirection == 'descending' ? {} : { transform: 'rotate(180deg)' }" height="32" width="32"/>
+      </button>
+    </div>
+    <div class="list-article" *ngIf="post.length">
+      <app-post-card *ngFor="let post of post" [post]="post"></app-post-card>
+    </div>
+    <div class="list-article" *ngIf="!post.length">
+      <p>No post available</p>
+    </div>
+  </ng-container>
+  <ng-template #noPost>
+    <div>Veuillez vous abonner à un sujet pour voir les articles</div>
+  </ng-template>
+</section>

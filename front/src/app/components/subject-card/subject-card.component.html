@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-title>{{ subject.title }}</mat-card-title>
+    <mat-card-content>
+      <p>{{ subject.description }}</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        [style]="
+          subject.subscription
+            ? isDesktop
+              ? { width: '10.44rem' }
+              : { width: '10.25rem' }
+            : isDesktop
+            ? { width: '10.44rem' }
+            : { width: '8.69rem' }
+        "
+        class="button-create"
+        mat-raised-button
+        color="primary"
+        (click)="subscription(subject)">
+        <ng-container *ngIf="subject.subscription; else notSubscriptions">
+          Se désabonner
+        </ng-container>
+        <ng-template #notSubscriptions>S'abonner</ng-template>
+      </button>
+    </mat-card-actions>
+  </mat-card>

@@ -18,7 +18,6 @@ export class RegisterComponent implements OnInit {
   public onError = false;
   public hide = true;
   public form!: FormGroup;
-  private REGEX: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}$/;
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -41,7 +40,6 @@ export class RegisterComponent implements OnInit {
         '',
         [
           Validators.required,
-          Validators.pattern(this.REGEX)
         ]
       ]
     });
@@ -63,7 +61,7 @@ export class RegisterComponent implements OnInit {
           this.sessionService.logIn(response);
           this.router.navigate(['/posts']);
         },
-        error: error => this.onError = true,
+        error: () => this.onError = true,
       });
   }
 

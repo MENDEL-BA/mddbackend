@@ -64,7 +64,6 @@ public class User {
     @JoinTable(name = "SUBSCRIPTIONS",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))
-    @ToString.Exclude
     private Set<Subject> subjects = new HashSet<>();
 
     @Override
