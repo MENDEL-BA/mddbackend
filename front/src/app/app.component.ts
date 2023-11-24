@@ -21,24 +21,12 @@ export class AppComponent implements OnInit, OnDestroy {
     private breakpointObserver: BreakpointObserver) {
   }
 
-  public isStillConected(): void {
-    if (this.sessionService.isLogged) {
-      this.sessionService.updateUser()
-      this.router.navigate(['/posts'])
-    } else 
-      this.sessionService.logOut();
-  }
-
-
   ngOnInit() {
-    // Automatically close side menu on screens > small breakpoint
     this.sub = this.breakpointObserver
       .observe([Breakpoints.XSmall])
       .subscribe((result: BreakpointState) => {
         this.isDesktop = !result.matches;
       });
-
-    this.isStillConected();
   }
 
   headerIsshown(): boolean {

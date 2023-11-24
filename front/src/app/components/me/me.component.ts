@@ -65,22 +65,21 @@ export class MeComponent {
       .subscribe({
         next: (response: SessionInformation) => {
           localStorage.setItem("token",response.token);
-          this.showNotification('Mise à jour effectuér', 7000);
+          this.showNotification('Mise à jour effectuée', 7000);
         },
         error: () => this.showNotification('une erreur est arrivée', 3000)
       });
   }
 
-  unSubscribe(event: Event) {
-    const inputValue: number = (event.target as HTMLInputElement).valueAsNumber;
+  unSubscribe(subject: SubjectInterface) {
     // @ts-ignore
-    let subscription: SubscriptionInterface = {subjectId: inputValue, userId: this.user.id};
+    let subscription: SubscriptionInterface = {subjectId: subject.id, userId: this.user.id};
     this.subscriptionService.unSubscribeUser(subscription)
       .pipe(take(1))
       .subscribe({
         next: (response) => {
           this.update();
-          this.showNotification('Unsubscribed', 3000);
+          this.showNotification('Vous vous etes desabonné', 3000);
           return response;
         },
         error: () => this.showNotification('La subscription a pas ete trouve ', 3000)

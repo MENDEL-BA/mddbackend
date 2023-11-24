@@ -18,4 +18,6 @@ public class SubjectDto {
     @NotBlank
     @Size(max = 500)
     private String description;
+    private Long subjectId;
+    private boolean subscription;
 }

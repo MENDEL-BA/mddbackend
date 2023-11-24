@@ -10,15 +10,15 @@ import { Observable } from 'rxjs';
 export class SubscriptionService {
   private apiUrl: string = environment.baseUrl;
 
-  private pathService = this.apiUrl+'/users';
+  private pathService = this.apiUrl+'/subscriptions';
   constructor(private httpClient: HttpClient) {
   }
 
   public subscribeUser(subscription: SubscriptionInterface): Observable<SubscriptionInterface> {
-    return this.httpClient.post<SubscriptionInterface>(`${this.pathService}/sub`, subscription);
+    return this.httpClient.post<SubscriptionInterface>(`${this.pathService}`, subscription);
   }
 
   public unSubscribeUser(subscription: SubscriptionInterface): Observable<SubscriptionInterface> {
-    return this.httpClient.post<SubscriptionInterface>(`${this.pathService}/unsub`, subscription);
+    return this.httpClient.post<SubscriptionInterface>(`${this.pathService}/unsubscriptions`, subscription);
   }
 }

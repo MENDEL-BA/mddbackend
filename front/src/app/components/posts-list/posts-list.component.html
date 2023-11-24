@@ -1,7 +1,7 @@
 <section>
-  <ng-container *ngIf="posts as post; else loading">
+  <ng-container *ngIf="posts as post; else noPost">
     <div class="container">
-      <button class="button-create" mat-raised-button color="primary" (click)="newPost()">
+      <button class="button-create" mat-raised-button color="primary" (click)="newArticle()">
         Créer un article
       </button>
       <span class="spacer"></span>
@@ -9,8 +9,8 @@
         *ngIf="post.length"
         class="button-order"
         [attr.aria-label]="'Order by '+sortDirection+' date'"
-        (click)="orderByDAte()">
-        Trier par
+        (click)="orderByDate()">
+        Trier par Date
         <img
           src="/assets/arrow-small-down.png"
           alt="Order by date"
@@ -25,7 +25,7 @@
       <p>No post available</p>
     </div>
   </ng-container>
-  <ng-template #loading>
-    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  <ng-template #noPost>
+    <div>Veuillez vous abonner à un sujet pour voir les articles</div>
   </ng-template>
 </section>

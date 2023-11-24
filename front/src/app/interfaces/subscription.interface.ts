@@ -1,5 +1,5 @@
 export interface SubscriptionInterface {
   id?: number;
-  userId: number;
+  userId?: number;
   subjectId: number;
 }

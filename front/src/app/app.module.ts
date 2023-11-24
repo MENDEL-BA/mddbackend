@@ -18,7 +18,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {FlexModule} from "@angular/flex-layout";
-import { PostsComponent } from './components/posts/posts.component';
 import { JwtInterceptor } from './components/interceptors/jwt.interceptor';
 import { MeComponent } from './components/me/me.component';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
@@ -27,15 +26,17 @@ import { PostCardComponent } from './components/post-card/post-card.component';
 import { PostCreateComponent } from './components/post-create/post-create.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { PostsListComponent } from './components/posts-list/posts-list.component';
-import {CommonModule} from '@angular/common';
 import {MatRippleModule} from "@angular/material/core";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatListModule} from "@angular/material/list";
 import {MatSelectModule} from "@angular/material/select";
+import { SubjectComponent } from './subject/subject.component';
+import { SubjectCardComponent } from './components/subject-card/subject-card.component';
 @NgModule({
   declarations: [AppComponent, HeaderComponent, LandingComponent, 
-    LoginComponent, RegisterComponent, PostsComponent, MeComponent,
-    CommentsComponent, PostCardComponent, PostCreateComponent, PostDetailComponent, PostsListComponent],
+    LoginComponent, RegisterComponent, MeComponent,
+    CommentsComponent, PostCardComponent, PostCreateComponent, PostDetailComponent, 
+    PostsListComponent, SubjectComponent, SubjectCardComponent],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,

@@ -1,7 +1,10 @@
 package com.openclassrooms.mddapi.controllers;
 
 import com.openclassrooms.mddapi.dtos.PostDto;
+import com.openclassrooms.mddapi.dtos.SubjectDto;
+import com.openclassrooms.mddapi.dtos.UserDto;
 import com.openclassrooms.mddapi.models.Post;
+import com.openclassrooms.mddapi.payload.response.MessageResponse;
 import com.openclassrooms.mddapi.services.PostService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -19,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -45,7 +49,11 @@ public class PostController {
     public ResponseEntity<?> findAllPostsByUser() {
         List<Post> posts = this.service.getAllPostByUserSubscription();
         if (!posts.isEmpty()) {
-            return ResponseEntity.ok().body(this.mapper.map(posts, PostDto.class));
+            List<PostDto> postDtos = posts.stream()
+                    .map(post -> this.mapper.map(post, PostDto.class))
+                    .collect(Collectors.toList());
+
+            return ResponseEntity.ok().body(postDtos);
         }
         return ResponseEntity.noContent().build();
 
@@ -66,14 +74,16 @@ public class PostController {
             if (post == null) {
                 return ResponseEntity.notFound().build();
             }
-            return ResponseEntity.ok().body(this.mapper.map(post, Post.class));
+            return ResponseEntity.ok(this.mapper.map(post, PostDto.class));
         } catch (NumberFormatException e) {
-            return ResponseEntity.badRequest().build();
+            return ResponseEntity
+                    .badRequest()
+                    .body(new MessageResponse("Post non trouve"));
         }
     }
 
     /**
-     * Creation de posr
+     * Creation de post
      *
      * @param postDto
      * @return le HTTP response avec le Post created

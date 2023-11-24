@@ -39,7 +39,7 @@ export class SessionService {
         next: (user: UserInterface) => {
           this.authUser = user;
         },
-        error: err => this.logOut()
+        error: () => this.logOut()
       });
   }
 

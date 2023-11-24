@@ -12,7 +12,6 @@ import {take} from "rxjs";
 })
 export class PostsListComponent implements OnInit {
   posts!: PostInterface[];
-  error: boolean = false;
   sortDirection: 'ascending' | 'descending' = 'ascending';
 
   constructor(
@@ -29,20 +28,20 @@ export class PostsListComponent implements OnInit {
         next: (value: PostInterface[]) => {
           this.posts = value;
         },
-        error: err => this.matSnackBar.open('Posts list is empty', '', {
+        error: () => this.matSnackBar.open('Aucun aticle trouvé', '', {
           duration: 3000,
         })
       });
   }
 
 
-  orderByDAte() {
+  orderByDate() {
     this.sortDirection =
       this.sortDirection === 'ascending' ? 'descending' : 'ascending';
     this.posts = this.posts.reverse();
   }
 
-  newPost() {
+  newArticle() {
     this.router.navigateByUrl(`posts/create`);
   }
 }

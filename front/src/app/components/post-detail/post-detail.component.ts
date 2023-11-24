@@ -80,11 +80,12 @@ export class PostDetailComponent implements OnInit {
       .subscribe({
         next: (response: MessageInterface) => {
           this.update();
-          this.showNotification('Your comment has been published', 2000);
+          this.showNotification('Votre commentaire est envoyé', 2000);
+          this.form.reset();
           return response;
         },
         error: () => {
-          this.showNotification('Server error, please try again', 2000);
+          this.showNotification('Une erreur est arrivée', 2000);
         },
       });
   }

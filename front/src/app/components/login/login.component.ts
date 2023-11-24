@@ -58,6 +58,6 @@ export class LoginComponent implements OnInit {
   }
 
   public return() {
-    this.location.back();
+    window.history.back();
   }
 }

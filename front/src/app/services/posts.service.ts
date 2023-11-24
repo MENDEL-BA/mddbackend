@@ -18,7 +18,7 @@ export class PostsService {
   }
 
   public createPost(post: PostInterface): Observable<PostInterface> {
-    return this.httpClient.post<PostInterface>(`${this.pathService}/new`, post);
+    return this.httpClient.post<PostInterface>(`${this.pathService}`, post);
   }
 
   public findById(id: number): Observable<PostInterface> {

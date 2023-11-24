@@ -17,7 +17,7 @@ CREATE TABLE IF NOT EXISTS subjects
 
 CREATE TABLE IF NOT EXISTS subscriptions
 (
-    id INT,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     subject_id bigint not null,
     user_id    bigint not null,
     primary key (id, user_id, subject_id),

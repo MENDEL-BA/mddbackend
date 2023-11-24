@@ -58,12 +58,12 @@
     <ng-container *ngIf="subjects; else loading">
       <div class="subjects" *ngIf="subjects?.length">
         <div *ngFor="let subject of subjects">
-          <app-subject-card
-            (subscribe)="unSubscribe($event)"
+          <subject-card-list
+            (subscribe)="unSubscribe(subject)"
             [subject]="subject"
             [isDesktop]="isDesktop"
           >
-          </app-subject-card>
+          </subject-card-list>
         </div>
       </div>
       <div class="subjects" *ngIf="!subjects.length">

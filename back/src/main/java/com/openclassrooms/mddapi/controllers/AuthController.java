@@ -74,6 +74,6 @@ public class AuthController {
         }
         return ResponseEntity
                 .badRequest()
-                .body(new MessageResponse("Error: Utilisateur non trouve"));
+                .body(new MessageResponse("Utilisateur non trouve"));
     }
 }

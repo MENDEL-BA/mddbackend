@@ -39,7 +39,7 @@ public class SubscriptionController {
     @Operation(summary = "Creation Souscription a un sujet")
     @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Object of SubscriptionDto.class")
     @SecurityRequirement(name = "Bearer Authentication")
-    @PostMapping("/sub")
+    @PostMapping()
     public ResponseEntity<?> subscription(@Valid @RequestBody SubscriptionDto subscriptionDto) {
         this.service.subscribe(this.mapper.map(subscriptionDto, Subscription.class));
         return ResponseEntity.ok().build();
@@ -54,7 +54,7 @@ public class SubscriptionController {
     @Operation(summary = "Suppression d'une souscription")
     @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Object of SubscriptionDto.class")
     @SecurityRequirement(name = "Bearer Authentication")
-    @PostMapping("/unsubscription")
+    @PostMapping("/unsubscriptions")
     public ResponseEntity<?> unsubscription(@Valid @RequestBody SubscriptionDto subscriptionDto) {
         this.service.unsubscribe(this.mapper.map(subscriptionDto, Subscription.class));
         return ResponseEntity.ok().build();
