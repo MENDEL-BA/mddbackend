@@ -1,25 +1,43 @@
 # P6-Full-Stack-reseau-dev
 
-## Front
+## Getting started
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
+```
+cd existing_repo
+git remote add origin https://github.com/MENDEL-BA/mddbackend
+git branch -M main
+git push -uf origin main
+```
+## Installation
+## Run application Back-end 
+```
+Java 17
+Maven 3.3.6
 
-Don't forget to install your node_modules before starting (`npm install`).
+cd existing_repo
+git checkout develop
 
-### Development server
+install mysql database
+Create Database mdd
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+schema is automatically create if the the application run 
+Run the main class
+```
+## Run application Front-end
+```
 
-### Build
+Angular >=14
+Node >=16
+```
+```
+cd existing_repo
+git checkout main
+run npm install
+run ng s
+```
+## The documentaion app
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- [ ] [http:localhost:your-port-app/swagger-ui.html]
+- [ ] [http:localhost:your-port-app/v2/api-docs]
 
-### Where to start
-
-As you may have seen if you already started the app, a simple home page containing a logo, a title and a button is available. If you take a look at its code (in the `home.component.html`) you will see that an external UI library is already configured in the project.
-
-This library is `@angular/material`, it's one of the most famous in the angular ecosystem. As you can see on their docs (https://material.angular.io/), it contains a lot of highly customizable components that will help you design your interfaces quickly.
-
-Note: I recommend to use material however it's not mandatory, if you prefer you can get ride of it.
-
-Good luck!
+***
